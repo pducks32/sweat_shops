@@ -1,0 +1,387 @@
+/* line 15, ../../src/scss/style.scss */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 20, ../../src/scss/style.scss */
+html, body {
+  min-width: 100%;
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+/* line 41, ../../src/scss/style.scss */
+.Box {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 4em;
+  height: 4em;
+  margin: 0.4em;
+  background-color: lightGrey;
+  border: 0.4em solid darkGrey;
+  border-radius: 0.2em;
+}
+/* line 30, ../../src/scss/style.scss */
+.Box--red {
+  background-color: #FF6682;
+  border-color: #ff4265;
+}
+/* line 30, ../../src/scss/style.scss */
+.Box--blue {
+  background-color: #2CCAFF;
+  border-color: #08c1ff;
+}
+/* line 30, ../../src/scss/style.scss */
+.Box--green {
+  background-color: #83E88F;
+  border-color: #65e274;
+}
+/* line 30, ../../src/scss/style.scss */
+.Box--yellow {
+  background-color: #FFF585;
+  border-color: #fff261;
+}
+
+/* line 58, ../../src/scss/style.scss */
+.GameOver {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999999;
+  background-color: rgba(200, 19, 19, 0.9);
+  color: white;
+  font-size: 1.4em;
+  text-align: center;
+  padding: 4em 0;
+  opacity: 0;
+  transition: all 2s ease-in;
+}
+
+/* line 75, ../../src/scss/style.scss */
+.Bucket {
+  position: relative;
+  min-width: 6em;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  min-height: 6em;
+  margin: 0.5em;
+}
+/* line 81, ../../src/scss/style.scss */
+.Bucket__Tally {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: -2em;
+  text-align: center;
+  color: grey;
+}
+/* line 88, ../../src/scss/style.scss */
+.Bucket__Tally.drop--success {
+  -webkit-animation: flashGreen 0.5s linear;
+  animation: flashGreen 0.5s linear;
+}
+/* line 91, ../../src/scss/style.scss */
+.Bucket__Tally.drop--failure {
+  -webkit-animation: flashRed 0.5s linear;
+  animation: flashRed 0.5s linear;
+}
+/* line 95, ../../src/scss/style.scss */
+.Bucket__DropZone {
+  width: 100%;
+  min-height: 6em;
+  height: 100%;
+  border: 0.6em solid darkGrey;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+/* line 36, ../../src/scss/style.scss */
+.Bucket--red .Bucket__DropZone {
+  background-color: #FF6682;
+  border-color: #ff4265;
+}
+/* line 36, ../../src/scss/style.scss */
+.Bucket--blue .Bucket__DropZone {
+  background-color: #2CCAFF;
+  border-color: #08c1ff;
+}
+/* line 36, ../../src/scss/style.scss */
+.Bucket--green .Bucket__DropZone {
+  background-color: #83E88F;
+  border-color: #65e274;
+}
+/* line 36, ../../src/scss/style.scss */
+.Bucket--yellow .Bucket__DropZone {
+  background-color: #FFF585;
+  border-color: #fff261;
+}
+/* line 105, ../../src/scss/style.scss */
+.Bucket__DropZone.highlight {
+  -webkit-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+}
+
+/* line 112, ../../src/scss/style.scss */
+.Buckets {
+  padding-top: 4em;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -ms-flex-line-pack: distribute;
+  -webkit-align-content: space-around;
+  align-content: space-around;
+}
+/* line 118, ../../src/scss/style.scss */
+.Buckets::before, .Buckets:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+/* line 127, ../../src/scss/style.scss */
+.ConveyorBelt {
+  max-width: 24em;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-line-pack: start;
+  -webkit-align-content: flex-start;
+  align-content: flex-start;
+  font-size: 1.2em;
+  -ms-flex-item-align: center;
+  -webkit-align-self: center;
+  align-self: center;
+  min-height: 50vh;
+  padding: 1em;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
+  display: flex;
+  background-image: url(http://subtlepatterns.com/patterns/zigzag.png);
+  background-position: initial initial;
+  background-repeat: initial initial;
+}
+/* line 144, ../../src/scss/style.scss */
+.ConveyorBelt::before {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+/* line 154, ../../src/scss/style.scss */
+.Store__title {
+  color: white;
+  text-align: center;
+  border-bottom: 0.1em solid white;
+}
+/* line 159, ../../src/scss/style.scss */
+.Store__details {
+  margin-top: 0.2em;
+  display: block;
+  color: white;
+  text-align: center;
+}
+/* line 165, ../../src/scss/style.scss */
+.Store .Item {
+  border-radius: 1.9em;
+  margin: 0.4em;
+  background-color: #83E88F;
+  padding: 0.7em 1.4em;
+  text-align: center;
+}
+/* line 171, ../../src/scss/style.scss */
+.Store .Item__price {
+  font-size: 1.4em;
+}
+
+/* line 176, ../../src/scss/style.scss */
+.players {
+  display: block;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+/* line 184, ../../src/scss/style.scss */
+#panel {
+  width: 30%;
+  height: 100vh;
+  float: right;
+  background-color: #bc9aff;
+  padding: 0.4em;
+}
+
+/* line 191, ../../src/scss/style.scss */
+#scene {
+  width: 70%;
+  min-height: 100vh;
+  height: 100vh;
+  height: 100%;
+  float: left;
+  background-color: FAFAFA;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  align-item: center;
+  -ms-flex-line-pack: justify;
+  -webkit-align-content: space-between;
+  align-content: space-between;
+}
+
+@-webkit-keyframes flashGreen {
+  50% {
+    color: green;
+  }
+}
+
+@keyframes flashGreen {
+  50% {
+    color: green;
+  }
+}
+@-webkit-keyframes flashRed {
+  50% {
+    color: red;
+  }
+}
+@keyframes flashRed {
+  50% {
+    color: red;
+  }
+}
+/* line 215, ../../src/scss/style.scss */
+html,
+body {
+  min-height: 100%;
+}
+
+/* line 219, ../../src/scss/style.scss */
+.humane,
+.humane-flatty {
+  position: fixed;
+  transition: all 0.4s ease-in-out;
+  z-index: 100000;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+}
+
+/* line 230, ../../src/scss/style.scss */
+.humane,
+.humane-flatty {
+  font-family: Helvetica Neue, Helvetica, san-serif;
+  font-size: 16px;
+  top: 0;
+  left: 30%;
+  opacity: 0;
+  width: 40%;
+  color: #444;
+  padding: 10px;
+  text-align: center;
+  background-color: #fff;
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  -webkit-transform: translateY(-100px);
+  transform: translateY(-100px);
+}
+
+/* line 256, ../../src/scss/style.scss */
+.humane p,
+.humane-flatty p,
+.humane ul,
+.humane-flatty ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 263, ../../src/scss/style.scss */
+.humane ul,
+.humane-flatty ul {
+  list-style: none;
+}
+
+/* line 267, ../../src/scss/style.scss */
+.humane.humane-flatty-info,
+.humane-flatty.humane-flatty-info {
+  background-color: #3498db;
+  color: #FFF;
+}
+
+/* line 272, ../../src/scss/style.scss */
+.humane.humane-flatty-success,
+.humane-flatty.humane-flatty-success {
+  background-color: #18bc9c;
+  color: #FFF;
+}
+
+/* line 277, ../../src/scss/style.scss */
+.humane.humane-flatty-error,
+.humane-flatty.humane-flatty-error {
+  background-color: #e74c3c;
+  color: #FFF;
+}
+
+/* line 282, ../../src/scss/style.scss */
+.humane-animate,
+.humane-flatty.humane-flatty-animate {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+/* line 291, ../../src/scss/style.scss */
+.humane-animate:hover,
+.humane-flatty.humane-flatty-animate:hover {
+  opacity: 0.7;
+}
+
+/* line 295, ../../src/scss/style.scss */
+.humane-js-animate,
+.humane-flatty.humane-flatty-js-animate {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+/* line 304, ../../src/scss/style.scss */
+.humane-js-animate:hover,
+.humane-flatty.humane-flatty-js-animate:hover {
+  opacity: 0.7;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+}

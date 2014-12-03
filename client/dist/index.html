@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Sweat Shop Game</title>
+
+  <meta name="robots" content="noindex">
+
+  <link rel="stylesheet" href="css/normalize.css">
+
+  <link rel='stylesheet prefetch' href='https://raw.githubusercontent.com/wavded/humane-js/master/themes/bigbox.css'>
+
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+
+    <script src="js/modernizr.js"></script>
+
+</head>
+
+<body>
+
+  <div class="GameOver">
+    <h1 class="GameOver__title">YOU Died!</h1>
+    <p class="GameOver__message">You didn't work hard enough and got fired.</p>
+  </div>
+  
+  <section id="scene">
+    <div class="Buckets">
+      <div class="Bucket Bucket--red">
+        <h1 class="Bucket__Tally">0/12</h1>
+        <div class="Bucket__DropZone"></div>
+      </div>
+      <div class="Bucket Bucket--blue">
+        <h1 class="Bucket__Tally">0/12</h1>
+        <div class="Bucket__DropZone"></div>
+      </div>
+      <div class="Bucket Bucket--green">
+        <h1 class="Bucket__Tally">0/12</h1>
+        <div class="Bucket__DropZone"></div>
+      </div>
+      <div class="Bucket Bucket--yellow">
+        <h1 class="Bucket__Tally">0/12</h1>
+        <div class="Bucket__DropZone"></div>
+      </div>
+    </div>
+
+    <div class="ConveyorBelt">
+      <div class="Box Box--red"></div>
+      <div class="Box Box--blue"></div>
+      <div class="Box Box--green"></div>
+      <div class="Box Box--yellow"></div>
+      <div class="Box Box--red"></div>
+      <div class="Box Box--blue"></div>
+      <div class="Box Box--green"></div>
+      <div class="Box Box--yellow"></div>
+      <div class="Box Box--red"></div>
+      <div class="Box Box--blue"></div>
+      <div class="Box Box--green"></div>
+      <div class="Box Box--yellow"></div>
+    </div>
+  </section>
+<aside id="panel">
+  <small class="players"><span class="alive-player-count">14</span>/<span class="player-count">22</span> Players Alive</small>
+  <h1 class="Player__name">Bob</h1>
+  <h2 class="Player__balance">$7.50</h2>
+  <h2 class="Player__energy">15%</h2>
+  <h3 class="Store__title">Store</h3>
+  <small class="Store__details">Buy Supplies to keep your energy up</small>
+  <dl class="Store">
+    <div class="Item Item--food" data-name="food" data-price="1" data-energy="0.8">
+      <dt class="Item__name">Food</dt>
+      <dd class="Item__price">$1.00</dd>
+    </div>
+    <div class="Item Item--water" data-name="water" data-price="0.5" data-energy="0.4">
+      <dt class="Item__name">Water</dt>
+      <dd class="Item__price">$0.50</dd>
+    </div>
+    <div class="Item Item--break" data-name="a break" data-price="0" data-energy="1">
+      <dt class="Item__name">Take Break</dt>
+      <dd class="Item__price">FREE</dd>
+    </div>
+  </dl>
+</aside>
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/draggabilly/1.1.1/draggabilly.pkgd.min.js'></script><script src='js/dragdrop.js'></script><script src='http://cdnjs.cloudflare.com/ajax/libs/humane-js/3.0.6/humane.min.js'></script><script src='https://cdn.socket.io/socket.io-1.2.1.js'></script>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>
