@@ -16,8 +16,6 @@ var staticPath = path.join(__dirname, '../client/dist');
 app.use(express.static(staticPath, { maxAge: 86400000 }));
 
 app.get('/', function(req, res) {
-  path = path.join(staticPath, 'index.html')
-  console.log(path)
   res.sendFile(path.join(staticPath, 'index.html'));
 });
 
