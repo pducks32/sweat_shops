@@ -2,7 +2,6 @@ module.exports = (app, io) ->
   _ = require "underscore"
   util = require 'util'
   Player = require './../models/player'
-  ProgressBar = require 'progress';
 
   green = '\u001b[42m \u001b[0m'
   red = '\u001b[41m \u001b[0m'
