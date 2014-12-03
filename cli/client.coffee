@@ -4,7 +4,9 @@ multimeter = require('multimeter-stack');
 var multi = multimeter(process);
 multi.on('^C', process.exit);
 
-socket = io()
+socket = io("https://shielded-headland-9938.herokuapp.com")
 
 socket.on "bucketFilled", (data) ->
   player = getPlayerByID(data.id)
+
+socket.on ""

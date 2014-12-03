@@ -48,6 +48,7 @@ module.exports = (app, io) ->
 
   onVisibilityChange = (data) ->
     player = getPlayerWithID(this.id)
+    console.log console.inspect(player)
     player.update isWatching: data.toState
     g.io.emit "playerVisibilityChanged", {
       id: player.id,
