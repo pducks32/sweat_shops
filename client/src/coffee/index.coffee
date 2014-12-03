@@ -38,9 +38,10 @@ function parseURLParams(url) {
 
 window.socket = io()
 window.boxes = []
-window.energyInterval = setInterval((-> window.player.updateEnergy(-0.013)), 750)
+window.energyInterval = setInterval((-> window.player.updateEnergy -0.013 ), 750)
 window.player = new Player parseURLParams(document.location.search).name[0]
 window.Station.fire "newPlayer"
+
 window.player.render()
 window.GameOverField = document.querySelector(".GameOver")
 window.GameOverTitleField = window.GameOverField.querySelector(".GameOver__title")
