@@ -6,7 +6,7 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-var port = 80;
+var port = process.ENV.port || 8000;
 server.listen(port, function() {
   console.log("Running on port ", port);
 });
