@@ -2,7 +2,10 @@ module.exports = (app, io) ->
   _ = require "underscore"
   util = require 'util'
   Player = require './../models/player'
+  ProgressBar = require 'progress';
 
+  green = '\u001b[42m \u001b[0m'
+  red = '\u001b[41m \u001b[0m'
   g = {
     io: undefined
     players: []
@@ -58,6 +61,7 @@ module.exports = (app, io) ->
 
   onNewPlayer = (data) ->
     player = new Player this.id, data
+    util.log "#{player.fullName} joined!"
     g.players.push player
     g.io.emit "addPlayers", {
       players: [{id: player.id, fullName: player.fullName}]
@@ -66,11 +70,13 @@ module.exports = (app, io) ->
 
   onUpdate = (data) ->
     player = getPlayerWithID(this.id)
-    player.update data.player
-    g.io.emit "playerUpdated", {
-      id: player.id,
-      player: player
-    }
+    if player?
+      util.log "#{player.fullName} has #{player.energy} energy left!" if (0.24 <= player.energy <= 0.26) or (0.49 <= player.energy <= 0.51)
+      player?.update data.player
+      g.io.emit "playerUpdated", {
+        id: player.id,
+        player: player
+      }
 
   onGetPlayer = (data) ->
     player = getPlayerWithID(data.id)
@@ -80,6 +86,7 @@ module.exports = (app, io) ->
 
   onBreak = (data) ->
     player = getPlayerWithID(this.id)
+    util.log "#{player.fullName} took a break :("
     g.io.emit "playerTookBreak", {
       id: player.id,
       player: player,
@@ -93,6 +100,7 @@ module.exports = (app, io) ->
 
   onDeath = (data) ->
     player = getPlayerWithID(this.id)
+    util.log "#{player.fullName} died!"
     player.kill
     g.io.emit "playerDied", {
       id: player.id,
@@ -103,6 +111,7 @@ module.exports = (app, io) ->
   onPurchase = (data) ->
     player = getPlayerWithID(this.id)
     player.addTransaction data.transaction
+    util.log "#{player.fullName} made a purchase"
     g.io.emit "purchaseMade", {
       id: player.id,
       name: data.transaction.name
@@ -127,6 +136,7 @@ module.exports = (app, io) ->
 
   onBucketFilled = (data) ->
     player = getPlayerWithID(this.id)
+    util.log "#{player.fullName} filled a Bucket!"
     g.io.emit "playerFilledBucket", {
       id: player.id,
       player: player
@@ -134,9 +144,10 @@ module.exports = (app, io) ->
 
   onDisconnect = (data) ->
     player = getPlayerWithID(this.id)
-    player.update isConnected: false, isWatching: false
+    util.log "#{player.fullName} left!!" if player?
+    player?.update isConnected: false, isWatching: false
     g.io.emit "removePlayers", {
-      players: [{id: player.id}]
+      players: [{id: this.id}]
       playerCount: getPlayerCount()
     }
   init(io)
