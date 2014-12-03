@@ -38,7 +38,7 @@ module.exports = (app, io) ->
       socket.on 'wrongbox', onWrongBox
       socket.on 'death', onDeath
       socket.on 'break', onBreak
-      socket.on 'visibilityChange', onVisibilityChange
+      #socket.on 'visibilityChange', onVisibilityChange
       socket.on 'purchase', onPurchase
       socket.on 'bucketFilled', onBucketFilled
       socket.on 'debug', onDebug
@@ -48,7 +48,7 @@ module.exports = (app, io) ->
 
   onVisibilityChange = (data) ->
     player = getPlayerWithID(this.id)
-    console.log console.inspect(player)
+    util.log util.inspect(player)
     player.update isWatching: data.toState
     g.io.emit "playerVisibilityChanged", {
       id: player.id,
