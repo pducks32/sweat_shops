@@ -47,10 +47,10 @@ html, body {
   border: $box-border-width solid darkGrey;
   border-radius: $box-border-radius;
 
-  @include colored-box(red, nth($box-colors, 1));
-  @include colored-box(blue, nth($box-colors, 2));
-  @include colored-box(green, nth($box-colors, 3));
-  @include colored-box(yellow, nth($box-colors, 4));
+  @include colored-box("red", nth($box-colors, 1));
+  @include colored-box("blue", nth($box-colors, 2));
+  @include colored-box("green", nth($box-colors, 3));
+  @include colored-box("yellow", nth($box-colors, 4));
 
 }
 
@@ -98,10 +98,10 @@ html, body {
     height: 100%;
     border: $bucket-border-width solid darkGrey;
     transition: transform 0.3s ease-in-out;
-    @include colored-bucket(red, nth($box-colors, 1));
-    @include colored-bucket(blue, nth($box-colors, 2));
-    @include colored-bucket(green, nth($box-colors, 3));
-    @include colored-bucket(yellow, nth($box-colors, 4));
+    @include colored-bucket("red", nth($box-colors, 1));
+    @include colored-bucket("blue", nth($box-colors, 2));
+    @include colored-bucket("green", nth($box-colors, 3));
+    @include colored-bucket("yellow", nth($box-colors, 4));
     &.highlight {
       transform: scale(1.2, 1.2);
     }
@@ -137,10 +137,9 @@ html, body {
   padding: 1em;
   border-top-left-radius:2em;
   border-top-right-radius:2em;
-  display: flex;
-  background-image: url(http://subtlepatterns.com/patterns/zigzag.png);
-  background-position: initial initial;
-  background-repeat: initial initial;
+  //background-position: initial initial;
+  //background-repeat: initial initial;
+  background: url("http://subtlepatterns.com/patterns/zigzag.png");
   &::before {
     content: ".";
     visibility: hidden;
